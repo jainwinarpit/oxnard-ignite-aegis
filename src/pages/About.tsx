@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { CheckCircle, Target, Eye, Award, Users, Calendar } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
+import CountUp from '@/components/CountUp';
 import aboutImage from '@/assets/about-office.jpg';
 
 const About = () => {
@@ -73,15 +74,27 @@ const About = () => {
               </p>
               <div className="flex items-center space-x-8">
                 <div>
-                  <div className="text-3xl font-bold gradient-text">500+</div>
+                  <CountUp 
+                    end={500} 
+                    suffix="+" 
+                    className="text-3xl font-bold gradient-text"
+                  />
                   <div className="text-sm text-muted-foreground">Projects Completed</div>
                 </div>
                 <div>
-                  <div className="text-3xl font-bold gradient-text">15+</div>
+                  <CountUp 
+                    end={15} 
+                    suffix="+" 
+                    className="text-3xl font-bold gradient-text"
+                  />
                   <div className="text-sm text-muted-foreground">Years Experience</div>
                 </div>
                 <div>
-                  <div className="text-3xl font-bold gradient-text">99%</div>
+                  <CountUp 
+                    end={99} 
+                    suffix="%" 
+                    className="text-3xl font-bold gradient-text"
+                  />
                   <div className="text-sm text-muted-foreground">Client Satisfaction</div>
                 </div>
               </div>
@@ -154,7 +167,11 @@ const About = () => {
                       <CardContent className="p-6">
                         <div className="flex items-center mb-3">
                           <Calendar className="h-5 w-5 text-brand-cyan mr-2" />
-                          <span className="text-2xl font-bold gradient-text">{milestone.year}</span>
+                          <CountUp 
+                            end={parseInt(milestone.year)} 
+                            className="text-2xl font-bold gradient-text"
+                            duration={1500}
+                          />
                         </div>
                         <h3 className="text-lg font-semibold mb-2">{milestone.title}</h3>
                         <p className="text-muted-foreground">{milestone.description}</p>
@@ -181,7 +198,11 @@ const About = () => {
                     <CardContent className="p-6">
                       <div className="flex items-center mb-3">
                         <Calendar className="h-5 w-5 text-brand-cyan mr-2" />
-                        <span className="text-2xl font-bold gradient-text">{milestone.year}</span>
+                        <CountUp 
+                          end={parseInt(milestone.year)} 
+                          className="text-2xl font-bold gradient-text"
+                          duration={1500}
+                        />
                       </div>
                       <h3 className="text-lg font-semibold mb-2">{milestone.title}</h3>
                       <p className="text-muted-foreground">{milestone.description}</p>
