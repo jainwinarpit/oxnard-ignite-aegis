@@ -5,22 +5,25 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-xl text-sm font-semibold ring-offset-background transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 relative overflow-hidden",
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/90",
-        destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
-        outline: "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
-        secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
-        ghost: "hover:bg-accent hover:text-accent-foreground",
-        link: "text-primary underline-offset-4 hover:underline",
+        default: "bg-gradient-to-r from-brand-cyan to-brand-blue text-white shadow-brand hover:shadow-glow hover:scale-105 hover:-translate-y-0.5 active:scale-95",
+        destructive: "bg-gradient-to-r from-destructive to-red-600 text-destructive-foreground shadow-lg hover:shadow-xl hover:scale-105",
+        outline: "border-2 border-brand-cyan text-brand-cyan bg-background hover:bg-brand-cyan hover:text-white hover:shadow-brand hover:scale-105",
+        secondary: "bg-gradient-to-r from-secondary to-muted text-secondary-foreground hover:shadow-elegant hover:scale-105",
+        ghost: "text-brand-cyan hover:bg-brand-cyan/10 hover:text-brand-blue hover:scale-105",
+        link: "text-brand-cyan underline-offset-4 hover:underline hover:text-brand-blue",
+        premium: "bg-gradient-to-r from-brand-blue to-brand-purple text-white shadow-premium hover:shadow-glow hover:scale-105 hover:-translate-y-0.5",
+        vibrant: "bg-gradient-to-r from-brand-cyan to-brand-orange text-white shadow-brand hover:shadow-glow hover:scale-105 hover:-translate-y-0.5",
       },
       size: {
-        default: "h-10 px-4 py-2",
-        sm: "h-9 rounded-md px-3",
-        lg: "h-11 rounded-md px-8",
-        icon: "h-10 w-10",
+        default: "h-12 px-6 py-3 rounded-xl",
+        sm: "h-10 rounded-lg px-4 text-sm",
+        lg: "h-14 rounded-2xl px-10 text-lg font-bold",
+        xl: "h-16 rounded-2xl px-12 text-xl font-bold",
+        icon: "h-12 w-12 rounded-xl",
       },
     },
     defaultVariants: {

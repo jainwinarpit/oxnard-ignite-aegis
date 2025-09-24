@@ -88,34 +88,34 @@ const Home = () => {
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: `url(${heroImage})` }}
         >
-          <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/85 to-background/70" />
+          <div className="absolute inset-0 bg-gradient-to-r from-background/96 via-background/90 to-background/75" />
         </div>
         
         <div className="relative container-custom text-center lg:text-left">
-          <div className="max-w-4xl mx-auto lg:mx-0">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 animate-fade-in">
+          <div className="max-w-5xl mx-auto lg:mx-0">
+            <h1 className="font-heading text-5xl md:text-6xl lg:text-7xl font-black leading-tight mb-8 animate-fade-in">
               Welcome to{' '}
-              <span className="gradient-text">
+              <span className="gradient-text-vibrant block mt-2">
                 Oxnard Trading & Contracting
               </span>
             </h1>
-            <div className="space-y-2 mb-4 animate-slide-up [animation-delay:200ms]">
-              <h2 className="text-xl md:text-2xl font-semibold text-muted-foreground">
+            <div className="space-y-3 mb-6 animate-slide-up [animation-delay:200ms]">
+              <h2 className="font-heading text-2xl md:text-3xl font-bold text-foreground">
                 High-Performance Passive Fire Protection & Acoustic Solutions
               </h2>
             </div>
-            <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-3xl animate-slide-up [animation-delay:400ms]">
+            <p className="text-xl md:text-2xl text-muted-foreground mb-10 max-w-4xl animate-slide-up [animation-delay:400ms] leading-relaxed">
               We provide high-performance passive fire protection and acoustic seals designed for the most demanding applications. Our products form a critical component of fire-resistant and smoke-containment systems, while delivering exceptional acoustic properties.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 animate-slide-up [animation-delay:600ms]">
+            <div className="flex flex-col sm:flex-row gap-6 animate-slide-up [animation-delay:600ms]">
               <Link to="/services">
-                <Button className="btn-hero text-lg px-8 py-6">
+                <Button variant="premium" size="xl" className="text-xl px-12 py-6 font-black">
                   Explore Our Services
-                  <ArrowRight className="ml-2 h-5 w-5" />
+                  <ArrowRight className="ml-3 h-6 w-6" />
                 </Button>
               </Link>
               <Link to="/contact">
-                <Button variant="outline" size="lg" className="text-lg px-8 py-6 hover:bg-muted">
+                <Button variant="outline" size="xl" className="text-xl px-12 py-6 font-bold border-2 hover:shadow-glow">
                   Get Quote
                 </Button>
               </Link>
@@ -125,37 +125,39 @@ const Home = () => {
       </section>
 
       {/* Features Section */}
-      <section className="section-padding bg-gradient-subtle">
+      <section className="section-padding texture-bg-muted">
         <div className="container-custom">
-          <div className="text-center mb-16 fade-in-section">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <div className="text-center mb-20 fade-in-section">
+            <h2 className="font-heading text-4xl md:text-5xl font-black mb-6">
               Comprehensive <span className="gradient-text">Fire Protection Solutions</span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
               From premium products to expert services, we deliver complete fire safety and acoustic solutions tailored to your project requirements.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
             {features.map((feature, index) => (
-              <Card key={index} className="hover-card glass-card fade-in-section" style={{ animationDelay: `${index * 200}ms` }}>
-                <div className="relative overflow-hidden rounded-t-lg">
+              <Card key={index} className="premium-card fade-in-section" style={{ animationDelay: `${index * 200}ms` }}>
+                <div className="relative overflow-hidden rounded-t-2xl">
                   <img 
                     src={feature.image} 
                     alt={feature.title}
-                    className="w-full h-48 object-cover transition-transform duration-500 hover:scale-105"
+                    className="w-full h-56 object-cover transition-transform duration-700 hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                  <div className="absolute bottom-4 left-4">
-                    <feature.icon className="h-8 w-8 text-white" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+                  <div className="absolute bottom-6 left-6">
+                    <div className="p-3 rounded-xl bg-white/20 backdrop-blur-sm">
+                      <feature.icon className="h-8 w-8 text-white icon-glow" />
+                    </div>
                   </div>
                 </div>
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-semibold mb-3">{feature.title}</h3>
-                  <p className="text-muted-foreground mb-4 line-clamp-3">{feature.description}</p>
+                <CardContent className="p-8 relative z-10">
+                  <h3 className="font-heading text-2xl font-bold mb-4 text-foreground">{feature.title}</h3>
+                  <p className="text-muted-foreground mb-6 text-lg leading-relaxed">{feature.description}</p>
                   <Link to={feature.link}>
-                    <Button variant="ghost" className="p-0 h-auto font-semibold text-brand-cyan hover:text-brand-blue">
-                      Learn More <ArrowRight className="ml-1 h-4 w-4" />
+                    <Button variant="ghost" className="p-0 h-auto font-bold text-lg text-brand-cyan hover:text-brand-blue">
+                      Learn More <ArrowRight className="ml-2 h-5 w-5" />
                     </Button>
                   </Link>
                 </CardContent>
@@ -166,16 +168,17 @@ const Home = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="section-padding">
-        <div className="container-custom">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+      <section className="section-padding bg-gradient-to-r from-brand-cyan via-brand-blue to-brand-purple relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-texture opacity-30"></div>
+        <div className="container-custom relative z-10">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-10">
             {stats.map((stat, index) => (
               <div key={index} className="text-center fade-in-section" style={{ animationDelay: `${index * 100}ms` }}>
-                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-r from-brand-cyan to-brand-blue mb-4">
-                  <stat.icon className="h-8 w-8 text-white" />
+                <div className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-white/20 backdrop-blur-sm mb-6 pulse-glow">
+                  <stat.icon className="h-10 w-10 text-white" />
                 </div>
-                <div className="text-3xl font-bold gradient-text mb-2">{stat.value}</div>
-                <div className="text-muted-foreground">{stat.label}</div>
+                <div className="text-4xl md:text-5xl font-black text-white mb-3 font-heading">{stat.value}</div>
+                <div className="text-white/90 text-lg font-medium">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -183,30 +186,30 @@ const Home = () => {
       </section>
 
       {/* Testimonials Section */}
-      <section className="section-padding bg-muted/30">
+      <section className="section-padding texture-bg">
         <div className="container-custom">
-          <div className="text-center mb-16 fade-in-section">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <div className="text-center mb-20 fade-in-section">
+            <h2 className="font-heading text-4xl md:text-5xl font-black mb-6">
               What Our <span className="gradient-text">Clients Say</span>
             </h2>
-            <p className="text-xl text-muted-foreground">
+            <p className="text-2xl text-muted-foreground">
               Trusted by leading construction and development companies across Qatar
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             {testimonials.map((testimonial, index) => (
-              <Card key={index} className="glass-card hover-card fade-in-section" style={{ animationDelay: `${index * 200}ms` }}>
-                <CardContent className="p-6">
-                  <div className="flex mb-4">
+              <Card key={index} className="premium-card fade-in-section" style={{ animationDelay: `${index * 200}ms` }}>
+                <CardContent className="p-8 relative z-10">
+                  <div className="flex mb-6">
                     {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="h-5 w-5 fill-yellow-400 text-yellow-400" />
+                      <Star key={i} className="h-6 w-6 fill-brand-orange text-brand-orange animate-bounce-in" style={{ animationDelay: `${i * 100}ms` }} />
                     ))}
                   </div>
-                  <p className="text-muted-foreground mb-4 italic">"{testimonial.content}"</p>
+                  <p className="text-muted-foreground mb-6 italic text-lg leading-relaxed">"{testimonial.content}"</p>
                   <div>
-                    <p className="font-semibold">{testimonial.name}</p>
-                    <p className="text-sm text-muted-foreground">{testimonial.company}</p>
+                    <p className="font-heading font-bold text-lg">{testimonial.name}</p>
+                    <p className="text-brand-blue font-medium">{testimonial.company}</p>
                   </div>
                 </CardContent>
               </Card>
@@ -216,17 +219,17 @@ const Home = () => {
       </section>
 
       {/* Trust Indicators */}
-      <section className="section-padding">
+      <section className="section-padding bg-gradient-subtle">
         <div className="container-custom">
           <div className="text-center fade-in-section">
-            <h2 className="text-3xl md:text-4xl font-bold mb-8">
+            <h2 className="font-heading text-4xl md:text-5xl font-black mb-12">
               <span className="gradient-text">Quality Assurance</span> & Certifications
             </h2>
-            <div className="flex flex-wrap justify-center items-center gap-8 opacity-60">
+            <div className="flex flex-wrap justify-center items-center gap-8 opacity-80">
               {['ISO 9001 Certified', 'Qatar Safety Standards', 'Fire Protection Association', 'Building Code Compliance'].map((cert, index) => (
-                <div key={index} className="flex items-center space-x-2 bg-muted/50 px-4 py-2 rounded-lg">
-                  <CheckCircle className="h-5 w-5 text-brand-cyan" />
-                  <span className="font-medium">{cert}</span>
+                <div key={index} className="flex items-center space-x-3 glass-card px-8 py-4 rounded-2xl hover:scale-105 transition-all duration-300 animate-bounce-in" style={{ animationDelay: `${index * 200}ms` }}>
+                  <CheckCircle className="h-6 w-6 text-brand-green icon-glow" />
+                  <span className="font-semibold text-lg">{cert}</span>
                 </div>
               ))}
             </div>
@@ -235,24 +238,25 @@ const Home = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="section-padding bg-gradient-to-r from-brand-cyan via-brand-blue to-brand-purple">
-        <div className="container-custom text-center text-white">
-          <div className="max-w-3xl mx-auto fade-in-section">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+      <section className="section-padding bg-gradient-to-r from-brand-blue via-brand-purple to-brand-cyan relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-texture opacity-20"></div>
+        <div className="container-custom text-center text-white relative z-10">
+          <div className="max-w-4xl mx-auto fade-in-section">
+            <h2 className="font-heading text-4xl md:text-5xl font-black mb-6">
               Ready to Enhance Your Fire Protection?
             </h2>
-            <p className="text-xl mb-8 opacity-90">
+            <p className="text-2xl mb-12 opacity-95 leading-relaxed">
               Get in touch with our team today to discuss your project requirements and receive a comprehensive quote.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-6 justify-center">
               <Link to="/contact">
-                <Button size="lg" className="bg-white text-brand-blue hover:bg-white/90 font-semibold px-8 py-6">
+                <Button size="xl" className="bg-white text-brand-blue hover:bg-white/90 font-black px-12 py-6 text-xl hover:scale-105 hover:shadow-glow transition-all duration-300">
                   Get Started Today
-                  <ArrowRight className="ml-2 h-5 w-5" />
+                  <ArrowRight className="ml-3 h-6 w-6" />
                 </Button>
               </Link>
               <Link to="/services">
-                <Button variant="outline" size="lg" className="border-white text-white hover:bg-white/10 px-8 py-6">
+                <Button variant="outline" size="xl" className="border-2 border-white text-white hover:bg-white/10 px-12 py-6 text-xl font-bold hover:scale-105 transition-all duration-300">
                   View Services
                 </Button>
               </Link>
