@@ -88,37 +88,74 @@ const Home = () => {
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: `url(${heroImage})` }}
         >
-          <div className="absolute inset-0 bg-gradient-to-r from-background/96 via-background/90 to-background/75" />
+          <div className="absolute inset-0 bg-gradient-to-br from-background/95 via-background/85 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-texture opacity-10" />
         </div>
         
-        <div className="relative container-custom text-center lg:text-left">
-          <div className="max-w-5xl mx-auto lg:mx-0">
-            <h1 className="font-heading text-5xl md:text-6xl lg:text-7xl font-black leading-tight mb-8 animate-fade-in">
-              Welcome to{' '}
-              <span className="gradient-text-vibrant block mt-2">
-                Oxnard Trading & Contracting
-              </span>
-            </h1>
-            <div className="space-y-3 mb-6 animate-slide-up [animation-delay:200ms]">
-              <h2 className="font-heading text-2xl md:text-3xl font-bold text-foreground">
-                High-Performance Passive Fire Protection & Acoustic Solutions
-              </h2>
+        {/* Floating Elements */}
+        <div className="absolute top-20 right-10 w-32 h-32 bg-gradient-to-br from-brand-cyan/20 to-brand-blue/10 rounded-full blur-xl animate-float"></div>
+        <div className="absolute bottom-32 left-16 w-24 h-24 bg-gradient-to-br from-brand-purple/15 to-brand-cyan/10 rounded-full blur-lg animate-float-delay"></div>
+        
+        <div className="relative container-custom">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div className="lg:col-span-7 text-center lg:text-left">
+              <div className="inline-flex items-center px-6 py-3 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-sm font-medium mb-8 animate-fade-in">
+                <Shield className="h-4 w-4 mr-2 text-brand-cyan" />
+                Qatar's Leading Fire Protection Experts
+              </div>
+              
+              <h1 className="font-heading text-4xl md:text-6xl lg:text-7xl font-black leading-tight mb-6 animate-fade-in">
+                <span className="block gradient-text-vibrant">
+                  Oxnard Trading
+                </span>
+                <span className="block text-foreground mt-2">
+                  & Contracting
+                </span>
+              </h1>
+              
+              <div className="space-y-4 mb-8 animate-slide-up [animation-delay:200ms]">
+                <h2 className="font-heading text-xl md:text-2xl font-bold text-foreground/90">
+                  High-Performance Passive Fire Protection & Acoustic Solutions
+                </h2>
+                <div className="w-24 h-1 bg-gradient-to-r from-brand-cyan to-brand-blue mx-auto lg:mx-0 rounded-full"></div>
+              </div>
+              
+              <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-3xl mx-auto lg:mx-0 animate-slide-up [animation-delay:400ms] leading-relaxed">
+                We provide high-performance passive fire protection and acoustic seals designed for the most demanding applications. Our products form a critical component of fire-resistant and smoke-containment systems.
+              </p>
+              
+              <div className="flex flex-col sm:flex-row gap-6 animate-slide-up [animation-delay:600ms]">
+                <Link to="/services">
+                  <Button variant="premium" size="xl" className="text-lg px-10 py-6 font-black group">
+                    Explore Our Services
+                    <ArrowRight className="ml-3 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                </Link>
+                <Link to="/contact">
+                  <Button variant="outline" size="xl" className="text-lg px-10 py-6 font-bold border-2 hover:shadow-glow bg-white/5 backdrop-blur-sm">
+                    Get Quote
+                  </Button>
+                </Link>
+              </div>
             </div>
-            <p className="text-xl md:text-2xl text-muted-foreground mb-10 max-w-4xl animate-slide-up [animation-delay:400ms] leading-relaxed">
-              We provide high-performance passive fire protection and acoustic seals designed for the most demanding applications. Our products form a critical component of fire-resistant and smoke-containment systems, while delivering exceptional acoustic properties.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-6 animate-slide-up [animation-delay:600ms]">
-              <Link to="/services">
-                <Button variant="premium" size="xl" className="text-xl px-12 py-6 font-black">
-                  Explore Our Services
-                  <ArrowRight className="ml-3 h-6 w-6" />
-                </Button>
-              </Link>
-              <Link to="/contact">
-                <Button variant="outline" size="xl" className="text-xl px-12 py-6 font-bold border-2 hover:shadow-glow">
-                  Get Quote
-                </Button>
-              </Link>
+            
+            <div className="lg:col-span-5 animate-slide-up [animation-delay:300ms]">
+              <div className="relative">
+                <div className="absolute -inset-4 bg-gradient-to-br from-brand-cyan/20 via-brand-blue/10 to-brand-purple/20 rounded-2xl blur-xl"></div>
+                <div className="relative bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
+                  <div className="grid grid-cols-2 gap-6">
+                    {stats.slice(0,4).map((stat, index) => (
+                      <div key={index} className="text-center animate-bounce-in" style={{ animationDelay: `${800 + index * 100}ms` }}>
+                        <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-brand-cyan to-brand-blue mb-3">
+                          <stat.icon className="h-6 w-6 text-white" />
+                        </div>
+                        <div className="text-2xl md:text-3xl font-black text-foreground mb-1 font-heading">{stat.value}</div>
+                        <div className="text-sm text-muted-foreground font-medium">{stat.label}</div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

@@ -140,14 +140,43 @@ const About = () => {
             </p>
           </div>
 
-          <div className="relative">
-            <div className="absolute left-1/2 transform -translate-x-px h-full w-0.5 bg-gradient-to-b from-brand-cyan to-brand-purple"></div>
-            
-            {milestones.map((milestone, index) => (
-              <div key={index} className={`flex items-center mb-12 fade-in-section ${
-                index % 2 === 0 ? 'flex-row-reverse' : ''
-              }`} style={{ animationDelay: `${index * 200}ms` }}>
-                <div className={`w-1/2 ${index % 2 === 0 ? 'pl-12 text-left' : 'pr-12 text-right'}`}>
+          <div className="relative max-w-4xl mx-auto">
+            {/* Desktop Timeline */}
+            <div className="hidden lg:block">
+              <div className="absolute left-1/2 transform -translate-x-px h-full w-0.5 bg-gradient-to-b from-brand-cyan to-brand-purple"></div>
+              
+              {milestones.map((milestone, index) => (
+                <div key={index} className={`flex items-center mb-12 fade-in-section ${
+                  index % 2 === 0 ? 'flex-row-reverse' : ''
+                }`} style={{ animationDelay: `${index * 200}ms` }}>
+                  <div className={`w-1/2 ${index % 2 === 0 ? 'pl-12 text-left' : 'pr-12 text-right'}`}>
+                    <Card className="glass-card hover-card">
+                      <CardContent className="p-6">
+                        <div className="flex items-center mb-3">
+                          <Calendar className="h-5 w-5 text-brand-cyan mr-2" />
+                          <span className="text-2xl font-bold gradient-text">{milestone.year}</span>
+                        </div>
+                        <h3 className="text-lg font-semibold mb-2">{milestone.title}</h3>
+                        <p className="text-muted-foreground">{milestone.description}</p>
+                      </CardContent>
+                    </Card>
+                  </div>
+                  
+                  <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-gradient-to-r from-brand-cyan to-brand-blue rounded-full border-4 border-background"></div>
+                  
+                  <div className="w-1/2"></div>
+                </div>
+              ))}
+            </div>
+
+            {/* Mobile Timeline */}
+            <div className="lg:hidden">
+              <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-brand-cyan to-brand-purple"></div>
+              
+              {milestones.map((milestone, index) => (
+                <div key={index} className="relative pl-20 pb-12 fade-in-section" style={{ animationDelay: `${index * 200}ms` }}>
+                  <div className="absolute left-6 top-2 w-4 h-4 bg-gradient-to-r from-brand-cyan to-brand-blue rounded-full border-4 border-background"></div>
+                  
                   <Card className="glass-card hover-card">
                     <CardContent className="p-6">
                       <div className="flex items-center mb-3">
@@ -159,12 +188,8 @@ const About = () => {
                     </CardContent>
                   </Card>
                 </div>
-                
-                <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-gradient-to-r from-brand-cyan to-brand-blue rounded-full border-4 border-background"></div>
-                
-                <div className="w-1/2"></div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
