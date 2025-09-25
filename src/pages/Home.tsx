@@ -224,37 +224,76 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="section-padding bg-gradient-to-r from-brand-cyan via-brand-blue to-brand-purple relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-texture opacity-30"></div>
-        
-        {/* Animated background elements */}
+      {/* Stats Section - Redesigned */}
+      <section className="section-padding relative overflow-hidden bg-gradient-to-br from-background via-muted/50 to-background">
+        {/* Modern geometric background */}
         <div className="absolute inset-0">
-          {[...Array(8)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute w-4 h-4 bg-white/10 rounded-full animate-float"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 5}s`,
-                animationDuration: `${5 + Math.random() * 5}s`,
-              }}
-            />
-          ))}
+          <div className="absolute top-0 left-0 w-72 h-72 bg-gradient-to-br from-brand-cyan/10 to-brand-blue/5 rounded-full blur-3xl animate-float"></div>
+          <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-tl from-brand-purple/10 to-brand-cyan/5 rounded-full blur-3xl animate-float-delay"></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-r from-brand-orange/5 to-brand-pink/5 rounded-full blur-2xl animate-pulse"></div>
         </div>
-        
+
+        {/* Grid pattern overlay */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="h-full w-full" style={{
+            backgroundImage: `radial-gradient(circle at 1px 1px, hsl(var(--brand-cyan)) 1px, transparent 0)`,
+            backgroundSize: '40px 40px'
+          }}></div>
+        </div>
+
         <div className="container-custom relative z-10">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-10">
+          {/* Section Header */}
+          <div className="text-center mb-16 fade-in-section">
+            <h2 className="font-heading text-3xl md:text-4xl font-black mb-4">
+              Our <span className="gradient-text">Track Record</span>
+            </h2>
+            <div className="w-24 h-1 bg-gradient-to-r from-brand-cyan to-brand-blue mx-auto rounded-full mb-6"></div>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Numbers that speak for our commitment to excellence and reliability
+            </p>
+          </div>
+
+          {/* Stats Grid - Modern Card Design */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
-              <div key={index} className="text-center fade-in-section group" style={{ animationDelay: `${index * 100}ms` }}>
-                <div className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-white/20 backdrop-blur-sm mb-6 hover-card magnetic-button">
-                  <stat.icon className="h-10 w-10 text-white icon-glow" />
+              <div key={index} className="fade-in-section group" style={{ animationDelay: `${index * 150}ms` }}>
+                <div className="relative premium-card p-8 text-center hover-card group-hover:shadow-brand transition-all duration-500">
+                  {/* Card accent line */}
+                  <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-gradient-to-r from-brand-cyan to-brand-blue rounded-b-full"></div>
+                  
+                  {/* Icon container */}
+                  <div className="relative mb-6">
+                    <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-brand-cyan/20 to-brand-blue/10 border border-brand-cyan/20 group-hover:scale-110 transition-transform duration-300">
+                      <stat.icon className="h-8 w-8 text-brand-cyan group-hover:text-brand-blue transition-colors duration-300" />
+                    </div>
+                    {/* Glow effect */}
+                    <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-brand-cyan/10 to-brand-blue/5 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  </div>
+
+                  {/* Counter */}
+                  <div className="text-3xl md:text-4xl font-black text-foreground mb-2 font-heading group-hover:gradient-text transition-all duration-300">
+                    {stat.value}
+                  </div>
+
+                  {/* Label */}
+                  <div className="text-muted-foreground font-medium text-sm tracking-wide uppercase">
+                    {stat.label}
+                  </div>
+
+                  {/* Hover indicator */}
+                  <div className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-brand-cyan to-brand-blue transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
                 </div>
-                <div className="text-4xl md:text-5xl font-black text-white mb-3 font-heading group-hover:animate-bounce">{stat.value}</div>
-                <div className="text-white/90 text-lg font-medium">{stat.label}</div>
               </div>
             ))}
+          </div>
+
+          {/* Bottom decorative element */}
+          <div className="flex justify-center mt-16 fade-in-section" style={{ animationDelay: '800ms' }}>
+            <div className="flex items-center space-x-2">
+              <div className="w-2 h-2 bg-brand-cyan rounded-full animate-pulse"></div>
+              <div className="w-1 h-1 bg-brand-blue rounded-full animate-pulse" style={{ animationDelay: '0.5s' }}></div>
+              <div className="w-2 h-2 bg-brand-purple rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
+            </div>
           </div>
         </div>
       </section>
