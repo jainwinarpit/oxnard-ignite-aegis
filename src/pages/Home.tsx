@@ -7,88 +7,81 @@ import heroImage from '@/assets/hero-image.jpg';
 import productsImage from '@/assets/fire-products.jpg';
 import servicesImage from '@/assets/services-team.jpg';
 import CountUp from '@/components/CountUp';
-
 const Home = () => {
   useEffect(() => {
     const observerOptions = {
       threshold: 0.1,
       rootMargin: '0px 0px -50px 0px'
     };
-
-    const observer = new IntersectionObserver((entries) => {
+    const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
         }
       });
     }, observerOptions);
-
     const sections = document.querySelectorAll('.fade-in-section');
     sections.forEach(section => observer.observe(section));
-
     return () => observer.disconnect();
   }, []);
-
-  const features = [
-    {
-      icon: Shield,
-      title: 'Our Products',
-      description: 'Premium fire protection and acoustic seal solutions including glass joint seals, glazing seals, fire-rated glasses, and comprehensive fire stopping products.',
-      image: productsImage,
-      link: '/products'
-    },
-    {
-      icon: Wrench,
-      title: 'Our Services',
-      description: 'Expert installation and consultation services from custom joinery seal solutions to advanced fire protection system planning and implementation.',
-      image: servicesImage,
-      link: '/services'
-    },
-    {
-      icon: Award,
-      title: 'Why Choose Us',
-      description: 'Industry-leading expertise with cutting-edge fire protection technology, ensuring your projects meet the highest safety standards and building regulations.',
-      image: heroImage,
-      link: '/about'
-    }
-  ];
-
-  const stats = [
-    { icon: Users, value: '500+', label: 'Projects Completed' },
-    { icon: Building, value: '15+', label: 'Years Experience' },
-    { icon: Star, value: '99%', label: 'Client Satisfaction' },
-    { icon: Clock, value: '24/7', label: 'Support Available' }
-  ];
-
-  const testimonials = [
-    {
-      name: 'Ahmed Al-Rashid',
-      company: 'Qatar Construction Group',
-      content: 'Outstanding fire protection solutions. Their expertise in passive fire systems helped us exceed safety compliance requirements.',
-      rating: 5
-    },
-    {
-      name: 'Sarah Mitchell',
-      company: 'Doha Development Corp',
-      content: 'Professional service from consultation to installation. Their acoustic sealing solutions transformed our building acoustics.',
-      rating: 5
-    },
-    {
-      name: 'Mohammad Hassan',
-      company: 'Gulf Safety Solutions',
-      content: 'Reliable partner for all our fire safety needs. Quality products and exceptional technical support throughout our projects.',
-      rating: 5
-    }
-  ];
-
-  return (
-    <div className="min-h-screen">
+  const features = [{
+    icon: Shield,
+    title: 'Our Products',
+    description: 'Premium fire protection and acoustic seal solutions including glass joint seals, glazing seals, fire-rated glasses, and comprehensive fire stopping products.',
+    image: productsImage,
+    link: '/products'
+  }, {
+    icon: Wrench,
+    title: 'Our Services',
+    description: 'Expert installation and consultation services from custom joinery seal solutions to advanced fire protection system planning and implementation.',
+    image: servicesImage,
+    link: '/services'
+  }, {
+    icon: Award,
+    title: 'Why Choose Us',
+    description: 'Industry-leading expertise with cutting-edge fire protection technology, ensuring your projects meet the highest safety standards and building regulations.',
+    image: heroImage,
+    link: '/about'
+  }];
+  const stats = [{
+    icon: Users,
+    value: '500+',
+    label: 'Projects Completed'
+  }, {
+    icon: Building,
+    value: '15+',
+    label: 'Years Experience'
+  }, {
+    icon: Star,
+    value: '99%',
+    label: 'Client Satisfaction'
+  }, {
+    icon: Clock,
+    value: '24/7',
+    label: 'Support Available'
+  }];
+  const testimonials = [{
+    name: 'Ahmed Al-Rashid',
+    company: 'Qatar Construction Group',
+    content: 'Outstanding fire protection solutions. Their expertise in passive fire systems helped us exceed safety compliance requirements.',
+    rating: 5
+  }, {
+    name: 'Sarah Mitchell',
+    company: 'Doha Development Corp',
+    content: 'Professional service from consultation to installation. Their acoustic sealing solutions transformed our building acoustics.',
+    rating: 5
+  }, {
+    name: 'Mohammad Hassan',
+    company: 'Gulf Safety Solutions',
+    content: 'Reliable partner for all our fire safety needs. Quality products and exceptional technical support throughout our projects.',
+    rating: 5
+  }];
+  return <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url(${heroImage})` }}
-        >
+        <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{
+        backgroundImage: `url(${heroImage})`
+      }}>
           <div className="absolute inset-0 bg-gradient-to-br from-background/95 via-background/85 to-transparent" />
           <div className="absolute inset-0 bg-gradient-texture opacity-15" />
         </div>
@@ -100,18 +93,12 @@ const Home = () => {
         
         {/* Interactive particles */}
         <div className="absolute inset-0">
-          {[...Array(12)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute w-2 h-2 bg-brand-cyan/30 rounded-full animate-pulse"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 3}s`,
-                animationDuration: `${2 + Math.random() * 3}s`,
-              }}
-            />
-          ))}
+          {[...Array(12)].map((_, i) => <div key={i} className="absolute w-2 h-2 bg-brand-cyan/30 rounded-full animate-pulse" style={{
+          left: `${Math.random() * 100}%`,
+          top: `${Math.random() * 100}%`,
+          animationDelay: `${Math.random() * 3}s`,
+          animationDuration: `${2 + Math.random() * 3}s`
+        }} />)}
         </div>
         
         <div className="relative container-custom">
@@ -162,15 +149,15 @@ const Home = () => {
                 <div className="absolute -inset-4 bg-gradient-to-br from-brand-cyan/20 via-brand-blue/10 to-brand-purple/20 rounded-2xl blur-xl animate-pulse"></div>
                 <div className="relative bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 glass-card tilt-effect">
                   <div className="grid grid-cols-2 gap-6">
-                    {stats.slice(0,4).map((stat, index) => (
-                      <div key={index} className="text-center animate-bounce-in hover-card" style={{ animationDelay: `${800 + index * 100}ms` }}>
+                    {stats.slice(0, 4).map((stat, index) => <div key={index} className="text-center animate-bounce-in hover-card" style={{
+                    animationDelay: `${800 + index * 100}ms`
+                  }}>
                         <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-brand-cyan to-brand-blue mb-3 icon-glow">
                           <stat.icon className="h-6 w-6 text-white" />
                         </div>
                         <div className="text-2xl md:text-3xl font-black text-foreground mb-1 font-heading gradient-text">{stat.value}</div>
                         <div className="text-sm text-muted-foreground font-medium">{stat.label}</div>
-                      </div>
-                    ))}
+                      </div>)}
                   </div>
                 </div>
               </div>
@@ -192,14 +179,11 @@ const Home = () => {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
-            {features.map((feature, index) => (
-              <Card key={index} className="premium-card fade-in-section hover-card group shimmer" style={{ animationDelay: `${index * 200}ms` }}>
+            {features.map((feature, index) => <Card key={index} className="premium-card fade-in-section hover-card group shimmer" style={{
+            animationDelay: `${index * 200}ms`
+          }}>
                 <div className="relative overflow-hidden rounded-t-2xl">
-                  <img 
-                    src={feature.image} 
-                    alt={feature.title}
-                    className="w-full h-56 object-cover transition-all duration-700 group-hover:scale-110 group-hover:rotate-1"
-                  />
+                  <img src={feature.image} alt={feature.title} className="w-full h-56 object-cover transition-all duration-700 group-hover:scale-110 group-hover:rotate-1" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
                   <div className="absolute bottom-6 left-6">
                     <div className="p-3 rounded-xl bg-white/20 backdrop-blur-sm">
@@ -219,8 +203,7 @@ const Home = () => {
                     </Button>
                   </Link>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
         </div>
       </section>
@@ -237,9 +220,9 @@ const Home = () => {
         {/* Grid pattern overlay */}
         <div className="absolute inset-0 opacity-5">
           <div className="h-full w-full" style={{
-            backgroundImage: `radial-gradient(circle at 1px 1px, hsl(var(--brand-cyan)) 1px, transparent 0)`,
-            backgroundSize: '40px 40px'
-          }}></div>
+          backgroundImage: `radial-gradient(circle at 1px 1px, hsl(var(--brand-cyan)) 1px, transparent 0)`,
+          backgroundSize: '40px 40px'
+        }}></div>
         </div>
 
         <div className="container-custom relative z-10">
@@ -259,8 +242,9 @@ const Home = () => {
 
           {/* Revolutionary Stats Cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-            {stats.map((stat, index) => (
-              <div key={index} className="fade-in-section group" style={{ animationDelay: `${index * 200}ms` }}>
+            {stats.map((stat, index) => <div key={index} className="fade-in-section group" style={{
+            animationDelay: `${index * 200}ms`
+          }}>
                 <div className="relative h-full">
                   {/* Animated background glow */}
                   <div className="absolute -inset-0.5 bg-gradient-to-r from-brand-cyan via-brand-blue to-brand-purple rounded-3xl blur opacity-30 group-hover:opacity-60 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
@@ -285,11 +269,7 @@ const Home = () => {
                     {/* Counter number with enhanced styling */}
                     <div className="text-center mb-4">
                       <div className="text-5xl md:text-6xl font-black font-heading bg-gradient-to-br from-foreground to-foreground/70 bg-clip-text text-transparent group-hover:from-brand-cyan group-hover:to-brand-blue transition-all duration-500">
-                        <CountUp 
-                          end={parseInt(stat.value.replace(/[^\d]/g, ''))} 
-                          duration={2.5}
-                          suffix={stat.value.replace(/[\d]/g, '')}
-                        />
+                        <CountUp end={parseInt(stat.value.replace(/[^\d]/g, ''))} duration={2.5} suffix={stat.value.replace(/[\d]/g, '')} />
                       </div>
                     </div>
 
@@ -310,28 +290,14 @@ const Home = () => {
                     <div className="absolute bottom-4 left-4 w-1 h-1 bg-brand-blue/40 rounded-full group-hover:scale-200 transition-transform duration-300 delay-100"></div>
                   </div>
                 </div>
-              </div>
-            ))}
+              </div>)}
           </div>
 
           {/* Enhanced bottom section */}
-          <div className="text-center fade-in-section" style={{ animationDelay: '1000ms' }}>
-            <div className="inline-flex items-center space-x-6 px-8 py-4 rounded-2xl bg-gradient-to-r from-background/80 to-muted/50 backdrop-blur-sm border border-border/50">
-              <div className="flex items-center space-x-2">
-                <div className="w-3 h-3 bg-brand-cyan rounded-full animate-bounce"></div>
-                <span className="text-sm font-semibold text-muted-foreground">Trusted Nationwide</span>
-              </div>
-              <div className="w-px h-4 bg-border"></div>
-              <div className="flex items-center space-x-2">
-                <div className="w-3 h-3 bg-brand-blue rounded-full animate-bounce" style={{ animationDelay: '0.5s' }}></div>
-                <span className="text-sm font-semibold text-muted-foreground">24/7 Excellence</span>
-              </div>
-              <div className="w-px h-4 bg-border"></div>
-              <div className="flex items-center space-x-2">
-                <div className="w-3 h-3 bg-brand-purple rounded-full animate-bounce" style={{ animationDelay: '1s' }}></div>
-                <span className="text-sm font-semibold text-muted-foreground">Industry Leading</span>
-              </div>
-            </div>
+          <div className="text-center fade-in-section" style={{
+          animationDelay: '1000ms'
+        }}>
+            
           </div>
         </div>
       </section>
@@ -349,13 +315,14 @@ const Home = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-            {testimonials.map((testimonial, index) => (
-              <Card key={index} className="premium-card fade-in-section hover-card group tilt-effect" style={{ animationDelay: `${index * 200}ms` }}>
+            {testimonials.map((testimonial, index) => <Card key={index} className="premium-card fade-in-section hover-card group tilt-effect" style={{
+            animationDelay: `${index * 200}ms`
+          }}>
                 <CardContent className="p-8 relative z-10">
                   <div className="flex mb-6">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="h-6 w-6 fill-brand-orange text-brand-orange animate-bounce-in icon-glow" style={{ animationDelay: `${i * 100}ms` }} />
-                    ))}
+                    {[...Array(testimonial.rating)].map((_, i) => <Star key={i} className="h-6 w-6 fill-brand-orange text-brand-orange animate-bounce-in icon-glow" style={{
+                  animationDelay: `${i * 100}ms`
+                }} />)}
                   </div>
                   <p className="text-muted-foreground mb-6 italic text-lg leading-relaxed group-hover:text-foreground transition-colors duration-300">"{testimonial.content}"</p>
                   <div className="flex items-center space-x-3">
@@ -368,8 +335,7 @@ const Home = () => {
                     </div>
                   </div>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
         </div>
       </section>
@@ -382,12 +348,12 @@ const Home = () => {
               <span className="gradient-text">Quality Assurance</span> & Certifications
             </h2>
             <div className="flex flex-wrap justify-center items-center gap-8 opacity-80">
-              {['ISO 9001 Certified', 'Qatar Safety Standards', 'Fire Protection Association', 'Building Code Compliance'].map((cert, index) => (
-                <div key={index} className="flex items-center space-x-3 glass-card px-8 py-4 rounded-2xl hover:scale-105 transition-all duration-300 animate-bounce-in" style={{ animationDelay: `${index * 200}ms` }}>
+              {['ISO 9001 Certified', 'Qatar Safety Standards', 'Fire Protection Association', 'Building Code Compliance'].map((cert, index) => <div key={index} className="flex items-center space-x-3 glass-card px-8 py-4 rounded-2xl hover:scale-105 transition-all duration-300 animate-bounce-in" style={{
+              animationDelay: `${index * 200}ms`
+            }}>
                   <CheckCircle className="h-6 w-6 text-brand-green icon-glow" />
                   <span className="font-semibold text-lg">{cert}</span>
-                </div>
-              ))}
+                </div>)}
             </div>
           </div>
         </div>
@@ -420,8 +386,6 @@ const Home = () => {
           </div>
         </div>
       </section>
-    </div>
-  );
+    </div>;
 };
-
 export default Home;
