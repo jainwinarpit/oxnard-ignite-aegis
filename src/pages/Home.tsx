@@ -6,6 +6,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import heroImage from '@/assets/hero-image.jpg';
 import productsImage from '@/assets/fire-products.jpg';
 import servicesImage from '@/assets/services-team.jpg';
+import CountUp from '@/components/CountUp';
 
 const Home = () => {
   useEffect(() => {
@@ -242,57 +243,94 @@ const Home = () => {
         </div>
 
         <div className="container-custom relative z-10">
-          {/* Section Header */}
-          <div className="text-center mb-16 fade-in-section">
-            <h2 className="font-heading text-3xl md:text-4xl font-black mb-4">
-              Our <span className="gradient-text">Track Record</span>
+          {/* Modern Header with Enhanced Typography */}
+          <div className="text-center mb-20 fade-in-section">
+            <div className="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-brand-cyan/10 to-brand-blue/10 border border-brand-cyan/20 mb-6">
+              <div className="w-2 h-2 bg-brand-cyan rounded-full animate-pulse mr-3"></div>
+              <span className="text-sm font-semibold text-brand-cyan uppercase tracking-wider">Our Achievements</span>
+            </div>
+            <h2 className="font-heading text-4xl md:text-6xl font-black mb-6">
+              <span className="gradient-text-rainbow">Proven Excellence</span>
             </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-brand-cyan to-brand-blue mx-auto rounded-full mb-6"></div>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Numbers that speak for our commitment to excellence and reliability
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+              Every number tells a story of dedication, quality, and trust earned over years of exceptional service
             </p>
           </div>
 
-          {/* Stats Grid - Modern Card Design */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          {/* Revolutionary Stats Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
             {stats.map((stat, index) => (
-              <div key={index} className="fade-in-section group" style={{ animationDelay: `${index * 150}ms` }}>
-                <div className="relative premium-card p-8 text-center hover-card group-hover:shadow-brand transition-all duration-500">
-                  {/* Card accent line */}
-                  <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-gradient-to-r from-brand-cyan to-brand-blue rounded-b-full"></div>
+              <div key={index} className="fade-in-section group" style={{ animationDelay: `${index * 200}ms` }}>
+                <div className="relative h-full">
+                  {/* Animated background glow */}
+                  <div className="absolute -inset-0.5 bg-gradient-to-r from-brand-cyan via-brand-blue to-brand-purple rounded-3xl blur opacity-30 group-hover:opacity-60 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
                   
-                  {/* Icon container */}
-                  <div className="relative mb-6">
-                    <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-brand-cyan/20 to-brand-blue/10 border border-brand-cyan/20 group-hover:scale-110 transition-transform duration-300">
-                      <stat.icon className="h-8 w-8 text-brand-cyan group-hover:text-brand-blue transition-colors duration-300" />
+                  {/* Main card */}
+                  <div className="relative bg-card/80 backdrop-blur-xl rounded-3xl p-8 h-full border border-white/10 group-hover:border-brand-cyan/30 transition-all duration-500 hover:-translate-y-2">
+                    {/* Top accent */}
+                    <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-20 h-1 bg-gradient-to-r from-brand-cyan to-brand-blue rounded-b-full"></div>
+                    
+                    {/* Floating icon container */}
+                    <div className="relative mb-8 flex justify-center">
+                      <div className="relative">
+                        <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-brand-cyan/20 to-brand-blue/10 backdrop-blur-sm border border-brand-cyan/20 flex items-center justify-center group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
+                          <stat.icon className="h-10 w-10 text-brand-cyan group-hover:text-white transition-colors duration-300" />
+                        </div>
+                        {/* Animated rings */}
+                        <div className="absolute inset-0 rounded-2xl border-2 border-brand-cyan/20 animate-ping opacity-20"></div>
+                        <div className="absolute inset-0 rounded-2xl border border-brand-blue/30 animate-pulse"></div>
+                      </div>
                     </div>
-                    {/* Glow effect */}
-                    <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-brand-cyan/10 to-brand-blue/5 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                  </div>
 
-                  {/* Counter */}
-                  <div className="text-3xl md:text-4xl font-black text-foreground mb-2 font-heading group-hover:gradient-text transition-all duration-300">
-                    {stat.value}
-                  </div>
+                    {/* Counter number with enhanced styling */}
+                    <div className="text-center mb-4">
+                      <div className="text-5xl md:text-6xl font-black font-heading bg-gradient-to-br from-foreground to-foreground/70 bg-clip-text text-transparent group-hover:from-brand-cyan group-hover:to-brand-blue transition-all duration-500">
+                        <CountUp 
+                          end={parseInt(stat.value.replace(/[^\d]/g, ''))} 
+                          duration={2.5}
+                          suffix={stat.value.replace(/[\d]/g, '')}
+                        />
+                      </div>
+                    </div>
 
-                  {/* Label */}
-                  <div className="text-muted-foreground font-medium text-sm tracking-wide uppercase">
-                    {stat.label}
-                  </div>
+                    {/* Label with modern styling */}
+                    <div className="text-center">
+                      <p className="text-muted-foreground font-medium text-lg group-hover:text-foreground transition-colors duration-300">
+                        {stat.label}
+                      </p>
+                    </div>
 
-                  {/* Hover indicator */}
-                  <div className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-brand-cyan to-brand-blue transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+                    {/* Bottom progress line */}
+                    <div className="absolute bottom-0 left-0 w-full h-1 rounded-b-3xl overflow-hidden">
+                      <div className="h-full bg-gradient-to-r from-brand-cyan to-brand-blue transform -translate-x-full group-hover:translate-x-0 transition-transform duration-1000 ease-out"></div>
+                    </div>
+
+                    {/* Decorative corner elements */}
+                    <div className="absolute top-4 right-4 w-2 h-2 bg-brand-cyan/40 rounded-full group-hover:scale-150 transition-transform duration-300"></div>
+                    <div className="absolute bottom-4 left-4 w-1 h-1 bg-brand-blue/40 rounded-full group-hover:scale-200 transition-transform duration-300 delay-100"></div>
+                  </div>
                 </div>
               </div>
             ))}
           </div>
 
-          {/* Bottom decorative element */}
-          <div className="flex justify-center mt-16 fade-in-section" style={{ animationDelay: '800ms' }}>
-            <div className="flex items-center space-x-2">
-              <div className="w-2 h-2 bg-brand-cyan rounded-full animate-pulse"></div>
-              <div className="w-1 h-1 bg-brand-blue rounded-full animate-pulse" style={{ animationDelay: '0.5s' }}></div>
-              <div className="w-2 h-2 bg-brand-purple rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
+          {/* Enhanced bottom section */}
+          <div className="text-center fade-in-section" style={{ animationDelay: '1000ms' }}>
+            <div className="inline-flex items-center space-x-6 px-8 py-4 rounded-2xl bg-gradient-to-r from-background/80 to-muted/50 backdrop-blur-sm border border-border/50">
+              <div className="flex items-center space-x-2">
+                <div className="w-3 h-3 bg-brand-cyan rounded-full animate-bounce"></div>
+                <span className="text-sm font-semibold text-muted-foreground">Trusted Nationwide</span>
+              </div>
+              <div className="w-px h-4 bg-border"></div>
+              <div className="flex items-center space-x-2">
+                <div className="w-3 h-3 bg-brand-blue rounded-full animate-bounce" style={{ animationDelay: '0.5s' }}></div>
+                <span className="text-sm font-semibold text-muted-foreground">24/7 Excellence</span>
+              </div>
+              <div className="w-px h-4 bg-border"></div>
+              <div className="flex items-center space-x-2">
+                <div className="w-3 h-3 bg-brand-purple rounded-full animate-bounce" style={{ animationDelay: '1s' }}></div>
+                <span className="text-sm font-semibold text-muted-foreground">Industry Leading</span>
+              </div>
             </div>
           </div>
         </div>
