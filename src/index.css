@@ -171,29 +171,64 @@
 }
 
 @layer components {
-  /* Premium Button Variants */
+  /* Premium Button Variants - Enhanced Smooth Hover Effects */
   .btn-hero {
-    @apply relative overflow-hidden bg-gradient-to-r from-brand-cyan to-brand-blue text-white font-bold px-10 py-5 rounded-2xl shadow-brand transition-all duration-300 hover:shadow-glow hover:scale-105 hover:-translate-y-1 active:scale-95;
+    @apply relative overflow-hidden bg-gradient-to-r from-brand-cyan to-brand-blue text-white font-bold px-10 py-5 rounded-2xl shadow-brand transition-all duration-500 ease-out;
     background-size: 200% 200%;
-    animation: gradient-shift 3s ease infinite;
+    transform: translateY(0) scale(1);
+  }
+  
+  .btn-hero:hover {
+    @apply shadow-glow;
+    transform: translateY(-2px) scale(1.02);
+    background-position: 100% 0;
+    filter: brightness(1.1);
+  }
+  
+  .btn-hero:active {
+    transform: translateY(0) scale(0.98);
+    transition-duration: 150ms;
   }
   
   .btn-hero::before {
     content: '';
-    @apply absolute inset-0 bg-gradient-to-r from-white/25 via-white/10 to-transparent opacity-0 transition-all duration-300 transform -translate-x-full;
+    @apply absolute inset-0 bg-gradient-to-r from-white/20 via-white/10 to-transparent opacity-0 transition-all duration-700 ease-out;
+    transform: translateX(-100%) skewX(-15deg);
   }
   
   .btn-hero:hover::before {
-    @apply opacity-100 translate-x-full;
-    transition: transform 0.6s ease;
+    @apply opacity-100;
+    transform: translateX(100%) skewX(-15deg);
   }
   
   .btn-premium {
-    @apply relative overflow-hidden bg-gradient-to-r from-brand-blue to-brand-purple text-white font-bold px-8 py-4 rounded-xl shadow-premium transition-all duration-300 hover:shadow-glow hover:scale-105 hover:-translate-y-0.5;
+    @apply relative overflow-hidden bg-gradient-to-r from-brand-blue to-brand-purple text-white font-bold px-8 py-4 rounded-xl shadow-premium transition-all duration-400 ease-out;
+    transform: translateY(0) scale(1);
+  }
+  
+  .btn-premium:hover {
+    @apply shadow-glow;
+    transform: translateY(-1px) scale(1.02);
+    filter: brightness(1.05) saturate(1.1);
+  }
+  
+  .btn-premium:active {
+    transform: translateY(0) scale(0.98);
   }
   
   .btn-vibrant {
-    @apply relative overflow-hidden bg-gradient-to-r from-brand-cyan to-brand-orange text-white font-bold px-8 py-4 rounded-xl shadow-brand transition-all duration-300 hover:shadow-glow hover:scale-105 hover:-translate-y-0.5;
+    @apply relative overflow-hidden bg-gradient-to-r from-brand-cyan to-brand-orange text-white font-bold px-8 py-4 rounded-xl shadow-brand transition-all duration-400 ease-out;
+    transform: translateY(0) scale(1);
+  }
+  
+  .btn-vibrant:hover {
+    @apply shadow-glow;
+    transform: translateY(-1px) scale(1.02);
+    filter: brightness(1.05) saturate(1.1);
+  }
+  
+  .btn-vibrant:active {
+    transform: translateY(0) scale(0.98);
   }
   
   /* Enhanced Glass Card Effect */
@@ -396,13 +431,30 @@
     @apply left-full;
   }
   
-  /* Magnetic Button Effect */
+  /* Magnetic Button Effect - Enhanced */
   .magnetic-button {
-    @apply relative transition-all duration-200;
+    @apply relative transition-all duration-300 ease-out;
+    transform: translateY(0) scale(1);
   }
   
   .magnetic-button:hover {
-    animation: magnetic-hover 0.3s ease;
+    transform: translateY(-1px) scale(1.02);
+    filter: brightness(1.05);
+  }
+  
+  .magnetic-button:active {
+    transform: translateY(0) scale(0.98);
+    transition-duration: 150ms;
+  }
+  
+  .magnetic-button::after {
+    content: '';
+    @apply absolute inset-0 rounded-[inherit] opacity-0 transition-opacity duration-300;
+    background: linear-gradient(135deg, hsl(var(--brand-cyan) / 0.1), hsl(var(--brand-blue) / 0.1));
+  }
+  
+  .magnetic-button:hover::after {
+    @apply opacity-100;
   }
 }
 
