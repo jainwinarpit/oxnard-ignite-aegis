@@ -134,7 +134,7 @@ const Home = () => {
                 <h2 className="font-heading text-xl md:text-2xl font-bold text-foreground/90">
                   High-Performance Passive Fire Protection & Acoustic Solutions
                 </h2>
-                <div className="w-24 h-1 bg-gradient-to-r from-brand-cyan to-brand-blue mx-auto lg:mx-0 rounded-full pulse-rainbow"></div>
+                <div className="w-24 h-1 bg-gradient-to-r from-brand-cyan to-brand-blue mx-auto lg:mx-0 rounded-full"></div>
               </div>
               
               <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-3xl mx-auto lg:mx-0 animate-slide-up [animation-delay:400ms] leading-relaxed">
@@ -158,7 +158,7 @@ const Home = () => {
             
             <div className="lg:col-span-5 animate-slide-up [animation-delay:300ms]">
               <div className="relative">
-                <div className="absolute -inset-4 bg-gradient-to-br from-brand-cyan/20 via-brand-blue/10 to-brand-purple/20 rounded-2xl blur-xl pulse-rainbow"></div>
+                <div className="absolute -inset-4 bg-gradient-to-br from-brand-cyan/20 via-brand-blue/10 to-brand-purple/20 rounded-2xl blur-xl animate-pulse"></div>
                 <div className="relative bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 glass-card tilt-effect">
                   <div className="grid grid-cols-2 gap-6">
                     {stats.slice(0,4).map((stat, index) => (
@@ -201,7 +201,7 @@ const Home = () => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
                   <div className="absolute bottom-6 left-6">
-                    <div className="p-3 rounded-xl bg-white/20 backdrop-blur-sm pulse-glow">
+                    <div className="p-3 rounded-xl bg-white/20 backdrop-blur-sm">
                       <feature.icon className="h-8 w-8 text-white icon-glow" />
                     </div>
                   </div>
@@ -248,7 +248,7 @@ const Home = () => {
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-10">
             {stats.map((stat, index) => (
               <div key={index} className="text-center fade-in-section group" style={{ animationDelay: `${index * 100}ms` }}>
-                <div className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-white/20 backdrop-blur-sm mb-6 pulse-rainbow hover-card magnetic-button">
+                <div className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-white/20 backdrop-blur-sm mb-6 hover-card magnetic-button">
                   <stat.icon className="h-10 w-10 text-white icon-glow" />
                 </div>
                 <div className="text-4xl md:text-5xl font-black text-white mb-3 font-heading group-hover:animate-bounce">{stat.value}</div>
